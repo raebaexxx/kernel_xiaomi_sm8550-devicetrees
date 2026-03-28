@@ -48,6 +48,7 @@
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
 	qcom,mdss-dsi-bl-min-level = <4>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-min-level = <10>;
 	qcom,mdss-brightness-max-level = <4095>;
 	qcom,mdss-dsi-bl-inverted-dbv;
 	qcom,platform-reset-gpio = <&tlmm 133 0>;
@@ -64,13 +65,6 @@
 		};
 		/* 120Hz */
 		timing@1{
-			qcom,mdss-dsi-panel-phy-timings = [00 27 0A 0A 1B 25 0A
-				0B 0A 02 04 00 20 0F];
-			qcom,display-topology = <2 2 1>;
-			qcom,default-topology-index = <0>;
-		};
-		/* 90Hz */
-		timing@2{
 			qcom,mdss-dsi-panel-phy-timings = [00 27 0A 0A 1B 25 0A
 				0B 0A 02 04 00 20 0F];
 			qcom,display-topology = <2 2 1>;
@@ -144,4 +138,11 @@
 		panel = <&dsi_m11_42_02_0a_dsc_cmd
 			&dsi_r66451_amoled_video>;
         };
+};
+
+&soc {
+	xiaomi-touch {
+		panel-primary = <&dsi_m11_42_02_0a_dsc_cmd
+			&dsi_r66451_amoled_video>;
+	};
 };
